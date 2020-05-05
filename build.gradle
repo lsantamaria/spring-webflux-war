@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+}
+
+ext {
+    springBootVersion = '2.2.6'
+}
+
+war {
+    enabled= true
+}
+
+
+group 'com.lsantamaria.demo'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    implementation "org.springframework.boot:spring-boot-autoconfigure"
+//    annotationProcessor "org.springframework.boot:spring-boot-autoconfigure-processor"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+    implementation "com.h2database:h2"
+
+    providedCompile "javax.servlet:javax.servlet-api"
+    providedRuntime "javax.servlet:javax.servlet-api"
+    implementation "org.springframework:spring-webflux"
+    implementation "org.springframework:spring-context"
+
+    testImplementation "org.springframework:spring-test"
+    implementation "com.fasterxml.jackson.core:jackson-databind"
+
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+}
